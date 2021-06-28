@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: api_test_sinatra
+  pool: 5
+  username: postgres
+  password: 123
+  host: localhost
