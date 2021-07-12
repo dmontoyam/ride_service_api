@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_27_234508) do
+ActiveRecord::Schema.define(version: 2021_07_12_155810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2021_06_27_234508) do
     t.integer "age"
     t.decimal "current_latitude"
     t.decimal "current_longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payment_methods", force: :cascade do |t|
+    t.integer "payment_source_id"
+    t.string "status"
+    t.string "method"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -56,6 +64,22 @@ ActiveRecord::Schema.define(version: 2021_06_27_234508) do
     t.integer "age"
     t.decimal "current_latitude"
     t.decimal "current_longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "token"
+    t.string "acceptance_token"
+    t.string "payment_method"
+    t.integer "payment_method_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "driver_id"
+    t.integer "rider_id"
+    t.integer "ride_services_id"
+    t.string "status"
+    t.float "total_amount"
+    t.datetime "date"
+    t.string "payment_method"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

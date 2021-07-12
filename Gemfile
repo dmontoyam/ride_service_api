@@ -27,7 +27,15 @@ gem 'pg'
 gem 'geocoder'
 
 # Httparty
-# gem 'httparty'
+gem 'httparty'
 
-# RSpec
-gem 'rspec'
+gem 'faker', '~> 2.11.0'
+
+
+group :test do
+  gem 'rspec'
+  gem 'factory_bot_rails'
+  gem "database_cleaner"
+  gem "shoulda"
+  gem "shoulda-matchers", require: false
+end
